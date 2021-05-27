@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MusicsPageRoutingModule } from './musics-routing.module';
 
 import { MusicsPage } from './musics.page';
+import { HeaderComponent } from '../../core/header/header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { MusicsPage } from './musics.page';
     IonicModule,
     MusicsPageRoutingModule
   ],
-  declarations: [MusicsPage]
+  declarations: [MusicsPage, HeaderComponent]
 })
 export class MusicsPageModule {}

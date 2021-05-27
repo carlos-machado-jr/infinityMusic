@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FavoritesPageRoutingModule } from './favorites-routing.module';
 
 import { FavoritesPage } from './favorites.page';
+import { HeaderComponent } from '../../core/header/header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { FavoritesPage } from './favorites.page';
     IonicModule,
     FavoritesPageRoutingModule
   ],
-  declarations: [FavoritesPage]
+  declarations: [FavoritesPage, HeaderComponent]
 })
 export class FavoritesPageModule {}

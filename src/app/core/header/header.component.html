@@ -1,0 +1,25 @@
+<ion-header>
+
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+
+      <ion-button *ngIf="searchActivate">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <div class="header-toolbar">
+      <img class="header-img" src="../../assets/images/svg/logo.svg">
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-button *ngIf="settingsActivate">
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+
+</ion-header>
