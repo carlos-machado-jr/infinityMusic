@@ -1,0 +1,7 @@
+{
+  "name": "infinityMusic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
