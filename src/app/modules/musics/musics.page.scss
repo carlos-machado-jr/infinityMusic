@@ -1,13 +1,8 @@
-.scrolling-wrapper {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-  
-    .card {
-      display: inline-block;
-      margin: 10px;
+  ion-slide{
+    width: 200px!important;
+    
+    ion-img::part(image){
+      border-radius: 30px !important
     }
-    --background: none
-    
-    
+
   }
