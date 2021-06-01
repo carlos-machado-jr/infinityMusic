@@ -1,8 +1,31 @@
+.genger{
   ion-slide{
-    width: 200px!important;
-    
+    width: 150px!important;
+    display: inline-block;
+    span{
+      line-height: 2;
+      font-size: 20px;
+      font-weight: 300
+    }
     ion-img::part(image){
-      border-radius: 30px !important
+      border-radius: 10% !important
     }
 
   }
+}
+
+.music{
+  ion-slide{
+    width: 170px!important;
+    display: inline-block;
+    span{
+      line-height: 2;
+      font-size: 20px;
+      font-weight: 300
+    }
+    ion-img::part(image){
+      border-radius: 10% !important
+    }
+
+  }
+}
