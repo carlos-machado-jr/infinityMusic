@@ -2,4 +2,58 @@
 
 <ion-content>
 
+    <div class="title">
+        <span>Encontre a melhor musica para a sua playlist</span>
+
+    </div>
+
+    <ion-searchbar placeholder="Pesquisar..."></ion-searchbar>
+
+    <div class="buscas_recentes">
+
+        <span>Buscas recentes</span>
+        <span class="text-small">Ver mais</span>
+
+    </div>
+
+    <div class="music" *ngFor="let i of images" >
+        <div class="imagem">
+            <ion-img src="{{ i.imageUrl }}"></ion-img>
+
+
+        </div>
+        <div class="content-music">
+            <div class="texts">
+                <span>Music title</span>
+                <span>Music subtitle</span>
+            </div>
+
+            <div class="settings">
+                <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="cards_generos">
+
+        <div class="title_generos">
+            <span>Genêro</span>
+
+        </div>
+
+        <div class="grid">
+            <div class="grid1"></div>
+            <div class="grid1"></div>
+            <div class="grid1"></div>
+            <div class="grid1"></div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
 </ion-content>

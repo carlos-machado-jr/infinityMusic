@@ -1,0 +1,80 @@
+.title{
+    padding: 10px;
+    
+    span{
+        font-size: 18px;
+        font-weight: 400;
+    }
+}
+
+
+
+.buscas_recentes{
+
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    span{
+        font-size: 18px;
+        font-weight: 400;
+
+    }
+    .text-small{
+        font-size: 13px;
+    }
+
+
+}
+.music{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    .texts{
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .imagem{
+        width: 70px;
+
+        ion-img::Part(image){
+            max-width: 100%;
+            border-radius: 10%!important;
+        }
+    }
+
+    .content-music{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+.cards_generos{
+    .title_generos{
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 400;
+        padding: 10px;
+    }
+
+    .grid{
+
+        display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10vh 10vh;
+    grid-gap: 17px;
+    padding: 10px;
+
+
+
+        .grid1{
+            background: blue;
+            border-radius: 2%
+        }
+    }
+}
