@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicesService } from 'src/app/core/services/services.service';
 import { MusicsService } from './musics.service';
 
 @Component({
@@ -14,30 +15,17 @@ export class MusicsPage implements OnInit {
   }
   
 
-  public images = [
-    {imageUrl:'https://universalmusic.vteximg.com.br/arquivos/ids/157765-1000-1000/a-milenar-arte-de-meter-o-louco-cd-projota-00602557488692-26060255748869.jpg?v=636935578254070000', 
-     imageName:'Projota'},
-
-     {imageUrl:'https://universalmusic.vteximg.com.br/arquivos/ids/157765-1000-1000/a-milenar-arte-de-meter-o-louco-cd-projota-00602557488692-26060255748869.jpg?v=636935578254070000', 
-     imageName:'Projota'},
-     
-     {imageUrl:'https://universalmusic.vteximg.com.br/arquivos/ids/157765-1000-1000/a-milenar-arte-de-meter-o-louco-cd-projota-00602557488692-26060255748869.jpg?v=636935578254070000', 
-     imageName:'Projota'},
-
-     {imageUrl:'https://universalmusic.vteximg.com.br/arquivos/ids/157765-1000-1000/a-milenar-arte-de-meter-o-louco-cd-projota-00602557488692-26060255748869.jpg?v=636935578254070000', 
-     imageName:'Projota'},
-
-     {imageUrl:'https://universalmusic.vteximg.com.br/arquivos/ids/157765-1000-1000/a-milenar-arte-de-meter-o-louco-cd-projota-00602557488692-26060255748869.jpg?v=636935578254070000', 
-     imageName:'Projota'},
-     
-     {imageUrl:'https://universalmusic.vteximg.com.br/arquivos/ids/157765-1000-1000/a-milenar-arte-de-meter-o-louco-cd-projota-00602557488692-26060255748869.jpg?v=636935578254070000', 
-     imageName:'Projota'}
-  ]
-  constructor() { }
+  public images = [ ]
+  constructor(private service: ServicesService) { }
 
   ngOnInit() {
 
+    this.service.getMusic().subscribe((res: any) => {
+      this.images = res.data;
+      this.images.shift();
+    })
     
+   
   }
 
 }

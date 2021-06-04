@@ -6,8 +6,8 @@
         <h2>Genêro</h2>
         <ion-slides [options]="options" class="ion-padding">
             <ion-slide *ngFor="let img of images">
-                <ion-img src="{{ img.imageUrl }}"></ion-img>
-                <span>rap</span>
+                <ion-img src="{{ img.picture_medium }}"></ion-img>
+                <span>{{ img.name }}</span>
             </ion-slide>
         </ion-slides>
         <div>
@@ -19,8 +19,8 @@
         <h2>Musicas</h2>
         <ion-slides [options]="options" class="ion-padding">
             <ion-slide *ngFor="let img of images">
-                <ion-img src="{{ img.imageUrl }}"></ion-img>
-                <span>rap</span>
+                <ion-img src="{{ img.picture_medium }}"></ion-img>
+                <span>{{ img.name }}</span>
             </ion-slide>
         </ion-slides>
 
@@ -30,8 +30,8 @@
         <h2>Playlists</h2>
         <ion-slides [options]="options" class="ion-padding">
             <ion-slide *ngFor="let img of images">
-                <ion-img src="{{ img.imageUrl }}"></ion-img>
-                <span>rap</span>
+                <ion-img src="{{ img.picture_medium }}"></ion-img>
+                <span>{{ img.name }}</span>
             </ion-slide>
         </ion-slides>
 

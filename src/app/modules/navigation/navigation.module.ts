@@ -16,7 +16,8 @@ import { HeaderComponent } from '../../core/header/header.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    NavigationPageRoutingModule
+    NavigationPageRoutingModule,
+    
   ],
   declarations: [NavigationPage, HeaderComponent]
 })
