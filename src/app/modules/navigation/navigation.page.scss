@@ -1,80 +1,124 @@
-.title{
-    padding: 10px;
-    
-    span{
-        font-size: 18px;
-        font-weight: 400;
+.content{
+    .padding{
+        padding-bottom: 15px;
     }
-}
-
-
-
-.buscas_recentes{
-
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    span{
-        font-size: 18px;
-        font-weight: 400;
-
-    }
-    .text-small{
-        font-size: 13px;
-    }
-
-
-}
-.music{
-    display: flex;
-    align-items: center;
-    padding: 10px;
-
-    .texts{
-        margin-left: 10px;
-        display: flex;
-        flex-direction: column;
-    }
-    .imagem{
-        width: 70px;
-
-        ion-img::Part(image){
-            max-width: 100%;
-            border-radius: 10%!important;
+    .title{
+        span{
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            letter-spacing: 0.4px;
         }
     }
-
-    .content-music{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+    
+    ion-searchbar{
+        --background: #070B2C;
+        --border-radius: 10px;
+        --color: #B8B8B8;	
+        --icon-color: #B8B8B8;
+        --placeholder-color: #B8B8B8;
+        --placeholder-font-weight: normal;
     }
-}
+    
+    
+    ion-grid{
+        ion-row{
+            ion-col{
+            --ion-grid-column-padding: 0;
 
-.cards_generos{
-    .title_generos{
-        margin-top: 10px;
-        font-size: 18px;
-        font-weight: 400;
-        padding: 10px;
+                .more{
+                    display: flex;
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 14px;
+                    line-height: 28px;
+
+                    letter-spacing: 0.4px;
+
+                    color: #818181;
+            
+                }
+                
+            }
+        
+        }
+    
     }
 
-    .grid{
+    ion-grid{
+        ion-row{
+            padding-bottom:14px;
+            .columnMusics{
+            display: flex;
+            align-items: center;
 
-        display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10vh 10vh;
-    grid-gap: 17px;
-    padding: 10px;
+                .image{
+                 width: 50px;
+                    
+                 ion-img::Part(image){
+                             max-width: 100%;
+                             box-sizing: border-box;
+                             border-radius: 10px!important;
+                             border: 1px solid rgba(0, 0, 0, 0.12);
+                            }
+                }
+                .informations{
+                    display: flex;
+                    flex-direction: column;
+                    .title{
+                        font-weight: normal;
+                        font-size: 18px;
+                        letter-spacing: 0.4px;
+                    }
 
+                    .description{
 
+                        font-weight: 300;
+                        font-size: 14px;
+                        letter-spacing: 0.4px;
+                        color: #C88EEB;
 
-        .grid1{
-            background: blue;
-            border-radius: 2%
+                    }
+
+                }
+                
+            }
+        
+        }
+    
+    }
+
+    
+   
+    
+    .card-genrer{
+       
+    
+        .grid{
+    
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 12vh 12vh;
+            grid-gap: 17px;
+           
+    
+    
+    
+            .grid-item{
+                background: #070B2C;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .title{
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: 28px;
+                    letter-spacing: 0.4px;
+                    color: #5F0099;
+                }
+            }
         }
     }
 }

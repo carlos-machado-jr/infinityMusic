@@ -1,59 +1,90 @@
-<app-header search='false' settings='true'></app-header>
 
 <ion-content>
+    <app-header search='false' settings='true'></app-header>
 
-    <div class="title">
-        <span>Encontre a melhor musica para a sua playlist</span>
+    <div class="content ion-padding">
 
-    </div>
-
-    <ion-searchbar placeholder="Pesquisar..."></ion-searchbar>
-
-    <div class="buscas_recentes">
-
-        <span>Buscas recentes</span>
-        <span class="text-small">Ver mais</span>
-
-    </div>
-
-    <div class="music" *ngFor="let i of images" >
-        <div class="imagem">
-            <ion-img src="{{ i.imageUrl }}"></ion-img>
-
-
+        <div class="title padding">
+            <span>Encontre a melhor musica para a sua playlist</span>
         </div>
-        <div class="content-music">
-            <div class="texts">
-                <span>Music title</span>
-                <span>Music subtitle</span>
+
+        <ion-searchbar placeholder="Pesquisar..." clear-icon></ion-searchbar>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col size="8">
+                    <div class="title  ion-align-itens-center">
+                        <span>Buscas recentes</span>
+                    </div>
+                </ion-col>
+                <ion-col size="4">
+                    <a class="more ion-align-itens-center ion-justify-content-end">Ver mais...</a>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+
+        <ion-grid>
+            <ion-row *ngFor="let i of images">
+                <ion-col size="2.5" class="columnMusics">
+                    <div class="image">
+                        <ion-img src="{{ i.imageUrl }}"></ion-img>
+                    </div>
+                </ion-col>
+                <ion-col size="8.5" class="columnMusics">
+                    <div class="informations">
+                        <span class="title">Music title</span>
+                        <span class="description">Music subtitle</span>
+                    </div>
+                </ion-col>
+                <ion-col size="1" class="columnMusics">
+                    <div class="settings ">
+                        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+
+      
+        <div class="card-genrer">
+
+            <div class="title padding">
+                <span>Genêro</span>
+
             </div>
 
-            <div class="settings">
-                <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="title">
+                        <span>Pop</span>
+                    </div>
+                </div>
+                
+                <div class="grid-item">
+                    <div class="title">
+                        <span>Pop</span>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="title">
+                        <span>Pop</span>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="title">
+                        <span>Pop</span>
+                    </div>
+                </div>                
             </div>
-        </div>
-    </div>
 
-    <div class="cards_generos">
-
-        <div class="title_generos">
-            <span>Genêro</span>
-
-        </div>
-
-        <div class="grid">
-            <div class="grid1"></div>
-            <div class="grid1"></div>
-            <div class="grid1"></div>
-            <div class="grid1"></div>
-        </div>
 
 
 
 
+        </div>
 
     </div>
-
     <!-- <ion-button href="https://connect.deezer.com/oauth/auth.php?app_id=479922&redirect_uri=http://app.axdeveloper.com.br/401.shtml&perms=basic_access,email" ></ion-button> -->
 
 </ion-content>

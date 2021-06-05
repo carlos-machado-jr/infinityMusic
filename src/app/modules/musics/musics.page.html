@@ -1,9 +1,9 @@
 
- <div #header>
-    <app-header (headerRef)="getHeader($event)" search='true' settings='true'></app-header>
-</div>
+
 <ion-content  [scrollEvents]="true" (ionScroll)="onScroll($event)">
-   
+    <div #header>
+        <app-header (headerRef)="getHeader($event)" search='true' settings='true'></app-header>
+    </div>
     <div class="content ion-padding">
 
         <div class="title">
@@ -48,36 +48,7 @@
             </ion-slide>
         </ion-slides>
 
-        <div class="title">
-            <span>Playlists</span>
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-        </div>
-        <ion-slides [options]="options2" class="ion-padding slideDefault">
-            <ion-slide *ngFor="let img of images">
-                <ion-img src="{{ img.picture_big }}"></ion-img>
-                <span>{{ img.name }}</span>
-            </ion-slide>
-        </ion-slides>
-        <div class="title">
-            <span>Playlists</span>
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-        </div>
-        <ion-slides [options]="options2" class="ion-padding slideDefault">
-            <ion-slide *ngFor="let img of images">
-                <ion-img src="{{ img.picture_big }}"></ion-img>
-                <span>{{ img.name }}</span>
-            </ion-slide>
-        </ion-slides>
-        <div class="title">
-            <span>Playlists</span>
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-        </div>
-        <ion-slides [options]="options2" class="ion-padding slideDefault">
-            <ion-slide *ngFor="let img of images">
-                <ion-img src="{{ img.picture_big }}"></ion-img>
-                <span>{{ img.name }}</span>
-            </ion-slide>
-        </ion-slides>
+       
 
     </div>
 
