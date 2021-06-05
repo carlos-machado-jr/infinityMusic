@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() search;
   @Input() settings;
+  @Input() toolbarSecondary: boolean = false;
 
   public searchActivate: Boolean = false;
   public settingsActivate: Boolean = false;

@@ -1,11 +1,16 @@
-.header-toolbar{
-    display: flex;
-    justify-content: center;
-}
-.header-img{
-    max-width: 100%;
-}
+ion-header{
+    .toolbar-secondary{
+        --background: #070B2C;
 
---background{
-    background: transparent;
+    }
+
+    .header-toolbar{
+        display: flex;
+        justify-content: center;
+    }
+    .header-img{
+        max-width: 100%;
+    }
+   
+
 }

@@ -1,0 +1,99 @@
+<ion-content>
+  <app-header settings='true' toolbarSecondary='true'></app-header>
+
+  <div class="content ion-padding">
+
+    <div class="header">
+      <div class="header-img">
+        <ion-avatar>
+          <img
+            src="https://cdns-images.dzcdn.net/images/artist/5153692326b43f3488e6c2e47931a815/250x250-000000-80-0-0.jpg">
+        </ion-avatar>
+      </div>
+      <div class="title">
+        <span>Projota</span>
+      </div>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" class="align-start">
+          <div class="buttonShare">
+            <ion-icon name="share-social-outline"></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button class="buttonPlay">TOCAR</ion-button>
+        </ion-col>
+        <ion-col size="3" class="align-end">
+          <div class="buttonHeart">
+            <ion-icon name="heart-outline"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <div class="content-body ion-padding">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="8">
+          <div class="title  ion-align-itens-center">
+            <span>Melhores Musicas</span>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <a class="more ion-align-itens-center ion-justify-content-end">Ver mais...</a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-list>
+      <ion-item lines="none" class="ion-no-padding" *ngFor="let i of images">
+        <ion-thumbnail slot="start">
+          <img src="{{ i.imageUrl }}">
+        </ion-thumbnail>
+        <div class="informations">
+          <span class="title">Music title</span>
+          <span class="description">Music subtitle</span>
+        </div>
+        <ion-buttons slot="end" class="ion-no-padding">
+          <ion-button color="none" class="ion-no-padding">
+            <ion-icon class="heart-outline" name="heart-outline"></ion-icon>
+            <ion-icon class="heart-filled" name="heart"></ion-icon>
+          </ion-button>
+          <ion-button color="none" class="ion-no-padding">
+            <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+
+    <div class="title">
+      <span>Playlists</span>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+    <ion-slides [options]="options" class="ion-padding slideDefault">
+      <ion-slide *ngFor="let img of images">
+        <ion-img src="{{ img.imageUrl }}"></ion-img>
+        <span>{{ img.imageName }}</span>
+      </ion-slide>
+    </ion-slides>
+
+    <div class="title">
+      <span>Albuns</span>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+
+    </div>
+    <ion-slides [options]="options" class="ion-padding slideDefault">
+      <ion-slide *ngFor="let img of images">
+        <ion-img src="{{ img.imageUrl }}"></ion-img>
+        <span>{{ img.imageName }}</span>
+      </ion-slide>
+    </ion-slides>
+
+  </div>
+
+</ion-content>

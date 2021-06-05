@@ -2,7 +2,7 @@
 
 <ion-content  [scrollEvents]="true" (ionScroll)="onScroll($event)">
     <div #header>
-        <app-header (headerRef)="getHeader($event)" search='true' settings='true'></app-header>
+        <app-header search='true' settings='true'></app-header>
     </div>
     <div class="content ion-padding">
 
@@ -16,9 +16,7 @@
                 <span>{{ img.name }}</span>
             </ion-slide>
         </ion-slides>
-        <div>
-
-        </div>
+        
 
 
 

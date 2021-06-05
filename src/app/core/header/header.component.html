@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border" >
 
 
-  <ion-toolbar>
+  <ion-toolbar [ngClass]="{'toolbar-secondary': toolbarSecondary}">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
       <ion-button *ngIf="searchActivate">

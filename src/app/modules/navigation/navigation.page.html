@@ -1,4 +1,3 @@
-
 <ion-content>
     <app-header search='false' settings='true'></app-header>
 
@@ -24,29 +23,26 @@
         </ion-grid>
 
 
-        <ion-grid>
-            <ion-row *ngFor="let i of images">
-                <ion-col size="2.5" class="columnMusics">
-                    <div class="image">
-                        <ion-img src="{{ i.imageUrl }}"></ion-img>
-                    </div>
-                </ion-col>
-                <ion-col size="8.5" class="columnMusics">
-                    <div class="informations">
-                        <span class="title">Music title</span>
-                        <span class="description">Music subtitle</span>
-                    </div>
-                </ion-col>
-                <ion-col size="1" class="columnMusics">
-                    <div class="settings ">
-                        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-                    </div>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
+        <ion-list >
+            <ion-item lines="none" class="ion-no-padding" *ngFor="let i of images">
+                <ion-thumbnail slot="start">
+                    <img src="{{ i.imageUrl }}">
+                </ion-thumbnail>
+                <div class="informations">
+                    <span class="title">Music title</span>
+                    <span class="description">Music subtitle</span>
+                </div>
+                <ion-button slot="end" color="none" class="ion-no-padding">
+                    <ion-icon  name="ellipsis-vertical-outline"></ion-icon>
+                </ion-button>
+                
+            </ion-item>
+        </ion-list>
 
 
-      
+
+
+
         <div class="card-genrer">
 
             <div class="title padding">
@@ -60,7 +56,7 @@
                         <span>Pop</span>
                     </div>
                 </div>
-                
+
                 <div class="grid-item">
                     <div class="title">
                         <span>Pop</span>
@@ -75,7 +71,7 @@
                     <div class="title">
                         <span>Pop</span>
                     </div>
-                </div>                
+                </div>
             </div>
 
 

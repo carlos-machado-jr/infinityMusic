@@ -20,7 +20,13 @@ const routes: Routes = [
     path: '',
     redirectTo: 'musics',
     pathMatch: 'full'
+  },  {
+    path: 'artists',
+    loadChildren: () => import('./modules/artists/artists.module').then( m => m.ArtistsPageModule)
   }
+
+ 
+
 
 ];
 
