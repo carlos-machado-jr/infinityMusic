@@ -1,0 +1,21 @@
+.content{
+    ion-list{
+        ion-item{
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 28px;
+            letter-spacing: 0.4px;
+            ion-badge{
+                background:none;
+                
+                font-style: normal;
+                font-weight: 300;
+                font-size: 17px;
+                line-height: 28px;
+                letter-spacing: 0.4px;
+                color: #C88EEB;
+            }
+        }
+    }
+}
