@@ -1,31 +1,54 @@
-.genger{
-  ion-slide{
-    width: 150px!important;
-    display: inline-block;
+.content{
+  .title{
+    display: flex;
+    align-items: baseline;
     span{
-      line-height: 2;
-      font-size: 20px;
-      font-weight: 300
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 0.4px;
+      
     }
-    ion-img::part(image){
-      border-radius: 10% !important
-    }
-
   }
-}
-
-.music{
-  ion-slide{
-    width: 170px!important;
-    display: inline-block;
-    span{
-      line-height: 2;
-      font-size: 20px;
-      font-weight: 300
+  
+    
+  .genrer{
+    ion-slide{
+      
+      display: inline-block;
+        span{
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 20px;
+        letter-spacing: 0.4px;
+        }
+      ion-img::part(image){
+        border-radius: 10% !important
+      }
+  
     }
-    ion-img::part(image){
-      border-radius: 10% !important
-    }
-
   }
+  
+  
+  .slideDefault{
+    ion-slide{
+      display: inline-block;
+      
+      span{
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: 0.4px;
+      }
+      
+      ion-img::part(image){
+        max-width: 100%;
+        border-radius: 10% !important
+      }
+  
+    }
+  }
+  
+ 
+  
 }

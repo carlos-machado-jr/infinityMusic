@@ -2,7 +2,10 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+
 :root {
+
+ 
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -77,10 +80,10 @@
 
 
     --ion-background-color:linear-gradient(180deg, #00001D 0%, rgba(16, 16, 45, 0) 100%), #00001D;
-    --ion-background-color-rgb: 81,47,60;
+    --ion-background-color-rgb: 0,0,29;
   
     --ion-text-color: #B8B8B8;
-    --ion-text-color-rgb: 0,0,0;
+    --ion-text-color-rgb: 184,184,184;
   
     --ion-color-step-50: #4d2d39;
     --ion-color-step-100: #492a36;

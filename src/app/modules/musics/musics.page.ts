@@ -13,7 +13,11 @@ export class MusicsPage implements OnInit {
     freeMode: true,
     spaceBetween: 10,
   }
-  
+  public options2 = {
+    slidesPerView: 2,
+    freeMode: true,
+    spaceBetween: 10,
+  }
 
   public images = [ ]
   constructor(private service: ServicesService) { }
