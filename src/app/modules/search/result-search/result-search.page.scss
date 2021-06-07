@@ -1,0 +1,35 @@
+
+    ion-list{
+        ion-item{
+            
+            ion-thumbnail{
+                width: 50px;
+                img{
+                    max-width: 100%;
+                    box-sizing: border-box;
+                    border-radius: 10px!important;
+                    border: 1px solid rgba(0, 0, 0, 0.12);
+                }
+            }
+            .informations{
+                display: flex;
+                flex-direction: column;
+                .title{
+                    font-weight: normal;
+                    font-size: 18px;
+                    letter-spacing: 0.4px;
+                }
+
+                .description{
+
+                    font-weight: 300;
+                    font-size: 14px;
+                    letter-spacing: 0.4px;
+                    color: #C88EEB;
+
+                }
+
+            }
+            
+        }
+    }

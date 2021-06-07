@@ -9,7 +9,7 @@
             <span>Encontre a melhor musica para a sua playlist</span>
         </div>
 
-        <ion-searchbar placeholder="Pesquisar..." clear-icon (keyup)="searchMusic()" [(ngModel)]="search"></ion-searchbar>
+        <ion-searchbar placeholder="Pesquisar..." clear-icon (ionFocus)="searchMusic($event)"  [(ngModel)]="search"></ion-searchbar>
         
         <ion-grid>
             <ion-row>
@@ -26,13 +26,13 @@
 
 
         <ion-list >
-            <ion-item lines="none" class="ion-no-padding" *ngFor="let i of images">
+            <ion-item lines="none" class="ion-no-padding" *ngFor="let t of images ">
                 <ion-thumbnail slot="start">
-                    <img src="{{ i.imageUrl }}">
+                    <img src="{{ t.imageUrl}}">
                 </ion-thumbnail>
                 <div class="informations">
-                    <span class="title">Music title</span>
-                    <span class="description">Music subtitle</span>
+                    <span class="title">muleque de vila</span>
+                    <span class="description">projota</span>
                 </div>
                 <ion-button slot="end" color="none" class="ion-no-padding">
                     <ion-icon  name="ellipsis-vertical-outline"></ion-icon>

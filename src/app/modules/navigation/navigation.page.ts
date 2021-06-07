@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { forkJoin, from, Observable, Subject, Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged, finalize, mergeMap, switchMap } from 'rxjs/operators';
 import { SearchService } from 'src/app/core/services/search.service';
+import { Track } from 'src/app/share/model/track';
 import { NavigationService } from './navigation.service';
+
 
 @Component({
   selector: 'app-navigation',
@@ -20,17 +25,42 @@ export class NavigationPage implements OnInit {
      imageName:'Projota'}
   ]
   search: any;
-  constructor(private searchMusics: SearchService) { }
+  track: Track[];
+  subject: Subscription;
+  constructor(
+    private searchMusics: SearchService,
+    private nav: NavController
+    
+    ) { }
 
   ngOnInit() {
+    // this.track = this.subject.pipe(
+    //   debounceTime(400), 
+    //   distinctUntilChanged(), // prevent duplicate request on retype
+    //   switchMap((value) => {
+    //     console.log(value)
+    //     const searchParams = this.search;
+    //     return this.searchMusics.searchMusic(value)})
+    // )
+    // this.track = this.subject.pipe(
+    //   mergeMap((value: any)=>{
+    //      return this.searchMusics.searchMusic(value);
+    //   })
+    //   )
+
+    // console.log(this.track)
+  }
+
+  searchMusic(event){
+    this.nav.navigateForward("/search");
+    // this.subject = this.searchMusics.searchMusic(this.search).subscribe(data => this.track = data)
+    // console.log(event)
+    // this.subject.next(this.search);
 
   }
 
-  searchMusic(){
-    if(this.search != null){
-      this.searchMusics.searchMusic(this.search).subscribe(data => console.log(data))
-    }
+ 
 
-  }
+  
 
 }
