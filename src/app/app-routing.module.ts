@@ -20,10 +20,15 @@ const routes: Routes = [
     path: '',
     redirectTo: 'musics',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'artists',
     loadChildren: () => import('./modules/artists/artists.module').then( m => m.ArtistsPageModule)
+  },  {
+    path: 'teste',
+    loadChildren: () => import('./modules/teste/teste.module').then( m => m.TestePageModule)
   }
+
 
  
 

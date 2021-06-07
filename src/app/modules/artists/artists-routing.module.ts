@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ArtistsPage
+  },  {
+    path: 'album',
+    loadChildren: () => import('./pages/album/album.module').then( m => m.AlbumPageModule)
   }
+
 ];
 
 @NgModule({

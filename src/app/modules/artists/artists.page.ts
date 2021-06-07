@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { FavoritesPage } from '../favorites/favorites.page';
 
 @Component({
   selector: 'app-artists',
@@ -28,4 +30,5 @@ export class ArtistsPage implements OnInit {
   ngOnInit() {
   }
 
+  
 }

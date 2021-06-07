@@ -1,4 +1,4 @@
-<app-header search='true' settings='true'></app-header>
+<app-header settings='true'></app-header>
 
 <ion-content>
 
@@ -7,7 +7,7 @@
             <span>Favoritos</span>
         </div>
         <ion-list>
-            <ion-item button *ngFor="let a of array"  lines="none" routerLink="/artists">
+            <ion-item button *ngFor="let a of array" routerDirection="forward" lines="none" [routerLink]="['/artists']">
                 <ion-label>
                     Melhores Musicas
                 </ion-label>
