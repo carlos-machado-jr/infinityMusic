@@ -9,8 +9,8 @@
             <span>Encontre a melhor musica para a sua playlist</span>
         </div>
 
-        <ion-searchbar placeholder="Pesquisar..." clear-icon></ion-searchbar>
-
+        <ion-searchbar placeholder="Pesquisar..." clear-icon (keyup)="searchMusic()" [(ngModel)]="search"></ion-searchbar>
+        
         <ion-grid>
             <ion-row>
                 <ion-col size="8">
