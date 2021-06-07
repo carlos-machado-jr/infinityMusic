@@ -8,6 +8,7 @@ import { ArtistsPageRoutingModule } from './artists-routing.module';
 
 import { ArtistsPage } from './artists.page';
 import { HeaderComponent } from 'src/app/core/header/header.component';
+import { AlbumPage } from './pages/album/album.page';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { HeaderComponent } from 'src/app/core/header/header.component';
     IonicModule,
     ArtistsPageRoutingModule
   ],
-  declarations: [ArtistsPage, HeaderComponent]
+  declarations: [ArtistsPage, HeaderComponent, AlbumPage]
 })
 export class ArtistsPageModule {}

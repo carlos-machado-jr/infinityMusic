@@ -15,6 +15,6 @@ import { AlbumPage } from './album.page';
     IonicModule,
     AlbumPageRoutingModule
   ],
-  declarations: [AlbumPage]
+  declarations: []
 })
 export class AlbumPageModule {}
