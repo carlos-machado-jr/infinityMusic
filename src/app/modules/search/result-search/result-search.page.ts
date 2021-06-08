@@ -4,6 +4,8 @@ import { debounceTime, distinctUntilChanged, finalize, switchMap } from 'rxjs/op
 import { SearchService } from 'src/app/core/services/search.service';
 import { Track } from 'src/app/share/model/track';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Artist } from 'src/app/share/model/artist';
+import { Album } from 'src/app/share/model/album';
 
 @Component({
   selector: 'result-search',
@@ -11,52 +13,61 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./result-search.page.scss'],
 })
 export class ResultSearchPage implements OnInit {
-  search: any;
   track: Observable<Track[]>;
+  artists: Observable<Artist[]>;
+  album: Observable<Album[]>;
+
   subject: Subscription;
+
   @Input() data: Subject<any> = new Subject<any>();
   @Input() updateComponent: Subject<boolean> = new Subject<boolean>();
-  uri="https://api.deezer.com/search";
 
-  constructor(private searchMusics: SearchService,
+  constructor(private trackService: SearchService,
               private active: ActivatedRoute,
               private router: Router
   ) { }
 
   ngOnInit() {
     if(this.data != null){
-    this.track = this.data.pipe(
-        debounceTime(400), 
-        distinctUntilChanged(), // prevent duplicate request on retype
-        switchMap((value) => {
-          if(value != ''){
-            const params = {
-              'q': value
-            }
-            return this.searchMusics.teste(params)
-            // this.uri = `${this.uri}?q=${value}&output=jsonp`;
-            // return this.searchMusics.searchMusic(this.uri);
-          } else {
-            return []
-          }
-          
-        })
-      )
-      this.subject = this.track.subscribe()
-    } else {
-      
-    }
-
-
-    
-    
-    
-
+      this.searchTrack();
+      this.searchArtists();
+      this.subscribers();
+      console.log(`artistas: ${this.artists}`)
+      console.log(`musicas: ${this.track}`)
+    } 
     
   }
 
   ngOnDestroy(){
     this.subject.unsubscribe();
   }
+
+
+  searchTrack(){
+    this.track = this.data.pipe(
+      debounceTime(400), 
+      distinctUntilChanged(), 
+      switchMap((value) => {
+          return this.trackService.searchByTracks(value, 2)
+      })
+    )
+  }
+
+  searchArtists(){
+    this.artists = this.data.pipe(
+      debounceTime(400), 
+      distinctUntilChanged(), 
+      switchMap((value) => {
+          return this.trackService.searchByArtists(value, 2)
+      })
+    )
+  }
+
+  
+  subscribers(){
+    this.subject = this.track.subscribe()
+  }
+
+
 
 }

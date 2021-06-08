@@ -8,5 +8,7 @@ export class Artist{
     picture_small: string;
     picture_xl: string;
     tracklist: string;
+    nb_fan: string;
+    nb_album: string;
     type: string;
 }

@@ -28,12 +28,14 @@ export class NavigationPage implements OnInit {
   track: Track[];
   subject: Subscription;
   constructor(
-    private searchMusics: SearchService,
+    private user: SearchService,
     private nav: NavController
     
     ) { }
 
   ngOnInit() {
+
+    this.user.searchByUser().subscribe(data => console.log(data))
     // this.track = this.subject.pipe(
     //   debounceTime(400), 
     //   distinctUntilChanged(), // prevent duplicate request on retype

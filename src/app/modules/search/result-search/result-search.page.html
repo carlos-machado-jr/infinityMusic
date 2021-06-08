@@ -1,6 +1,9 @@
 
 
-  <ion-list *ngIf="!(updateComponent | async); else loading">
+<ion-list *ngIf="!(updateComponent | async)">
+    <ion-item detail *ngIf="track | async" lines="none" class="ion-no-padding">
+        <ion-label>Músicas</ion-label>
+    </ion-item>
     <ion-item lines="none" class="ion-no-padding" *ngFor="let t of track | async " [routerLink]="['/artists/album']">
         <ion-thumbnail slot="start">
             <img src="{{ t.album.cover_medium }}">
@@ -16,8 +19,23 @@
     </ion-item>
 </ion-list>
 
-<ng-template #loading>
-    <div>Loading…</div>
-</ng-template>
+<ion-list *ngIf="!(updateComponent | async)">
+    <ion-item detail *ngIf="artists | async" lines="none">
+        <ion-label>Artistas</ion-label>
+    </ion-item>
+    <ion-item lines="none" class="ion-no-padding" *ngFor="let a of artists | async " [routerLink]="['/artists/album']">
+        <ion-avatar slot="start">
+            <img src="{{ a.picture_medium }}">
+        </ion-avatar>
+        <div class="informations">
+            <span class="title">{{a.name}}</span>
+        </div>
+        <ion-button slot="end" color="none" class="ion-no-padding">
+            <ion-icon  name="ellipsis-vertical-outline"></ion-icon>
+        </ion-button>
+        
+    </ion-item>
+</ion-list>
+
 
 

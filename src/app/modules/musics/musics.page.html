@@ -21,14 +21,14 @@
 
 
         <div class="title">
-            <span>Musicas</span>
+            <span>Albuns Recomendados</span>
             <ion-icon name="chevron-forward-outline"></ion-icon>
 
         </div>
         <ion-slides [options]="options2" class="ion-padding slideDefault">
-            <ion-slide *ngFor="let img of images">
-                <ion-img src="{{ img.picture_big }}"></ion-img>
-                <span>{{ img.name }}</span>
+            <ion-slide *ngFor="let a of albums">
+                <ion-img src="{{ a.cover_medium }}"></ion-img>
+                <span>{{ a.title }}</span>
             </ion-slide>
         </ion-slides>
 

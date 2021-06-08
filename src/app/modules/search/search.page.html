@@ -7,7 +7,7 @@
 
     <div class="content ion-padding">
 
-      <ion-searchbar placeholder="Pesquisar..." clear-icon (ionChange)="searchMusic()"  [(ngModel)]="search"></ion-searchbar>
+      <ion-searchbar placeholder="Pesquisar..." clear-icon (ionChange)="searchMusic()"  [(ngModel)]="search" enterkeyhint="search"  autocomplete="on"></ion-searchbar>
       <result-search [data]="subject" [updateComponent]="updateComponent"></result-search>
     
     </div>

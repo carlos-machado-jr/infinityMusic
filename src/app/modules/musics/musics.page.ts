@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Animation, AnimationController, AnimationDirection } from '@ionic/angular';
 import { ServicesService } from 'src/app/core/services/services.service';
+import { UsersService } from 'src/app/core/services/users.service';
+import { Album } from 'src/app/share/model/album';
 import { MusicsService } from './musics.service';
 
 @Component({
@@ -14,6 +16,10 @@ export class MusicsPage implements OnInit {
   private lastScroolTop: number =0;
   private animation: Animation;
   
+  albums: Album[];
+
+
+
   public options = {
     slidesPerView: 3,
     freeMode: true,
@@ -28,12 +34,13 @@ export class MusicsPage implements OnInit {
   public images = [ ]
   constructor(
     private service: ServicesService,
-    private animationCtrl: AnimationController
+    private animationCtrl: AnimationController,
+    private userRecomendations: UsersService
     
     ) { }
 
   ngOnInit() {
-
+    this.getAlbumsRecomendations()
     this.service.getMusic().subscribe((res: any) => {
       this.images = res.data;
       this.images.shift();
@@ -59,5 +66,10 @@ export class MusicsPage implements OnInit {
     if(this.animation.getDirection() != direction) this.animation.direction(direction).play();
 
     this.lastScroolTop = scrollTop;
+  }
+
+
+  getAlbumsRecomendations(){
+    this.userRecomendations.getAlbumsRecomendations().subscribe(data => this.albums = data)
   }
 }
