@@ -89,17 +89,17 @@
       </ion-slide>
     </ion-slides>
 
-    <div class="title ion-margin-top">
+    <div class="title ion-margin-top" *ngIf="albums">
       <ion-router-link routerDirection="forward" routerLink="album">
         <span>Albuns</span>
         <ion-icon name="chevron-forward-outline"></ion-icon>
       </ion-router-link>
 
     </div>
-    <ion-slides [options]="options" class="ion-padding slideDefault">
-      <ion-slide *ngFor="let img of images">
-        <ion-img src="{{ img.imageUrl }}"></ion-img>
-        <span>{{ img.imageName }}</span>
+    <ion-slides [options]="options" class="ion-padding slideDefault" *ngIf="albums">
+      <ion-slide *ngFor="let a of albums" [routerLink]="['/artists/album', a.id ]">
+        <ion-img src="{{ a.cover_medium  }}"></ion-img>
+        <span>{{ a.title}}</span>
       </ion-slide>
     </ion-slides>
 
