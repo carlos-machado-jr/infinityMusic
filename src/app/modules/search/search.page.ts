@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { SearchService } from 'src/app/core/services/search.service';
 import { Track } from 'src/app/share/model/track';
@@ -10,26 +10,36 @@ import { Track } from 'src/app/share/model/track';
 })
 export class SearchPage implements OnInit {
   search: any;
-  track: any;
+  track: any
+  updateComponent: Subject<boolean> = new Subject<boolean>();
   subject: Subject<any> =new Subject<any>()
+  teste: number = 0;
+
   constructor(private searchMusics: SearchService) { }
 
   ngOnInit() {
+    this.updateComponent.next(false);
   }
-  searchMusic(event: any){
-    if(event.detail.value != ''){
-      this.subject.next(event.detail.value);
-    } else { 
-      this.subject = new Subject<any>()
-      this.subject.next(event.detail.value);
-    }
-    // this.search = event.detail.value
-  }
-
-  searching(){
+  searchMusic(){
+      this.teste = 0;
+      this.updateComponent.next(false);
       console.log(this.search)
       this.subject.next(this.search);
+
     
+  }
+
+  @HostListener('window:keydown.backspace', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    console.log(this.teste)
+    if(this.teste <= 1){
+      this.updateComponent.next(true);
+      this.teste++
+    } else {
+       this.updateComponent.next(false);
+       this.ngOnInit()
+    }
+      
   }
 
 }

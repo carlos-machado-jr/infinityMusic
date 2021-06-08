@@ -7,9 +7,8 @@
 
     <div class="content ion-padding">
 
-      <ion-searchbar placeholder="Pesquisar..." clear-icon (ionChange)="searchMusic($event)"  [(ngModel)]="search"></ion-searchbar>
-      <ion-button (click)="searching()" color="secundary">Procurar</ion-button>
-      <result-search [data]="subject"></result-search>
+      <ion-searchbar placeholder="Pesquisar..." clear-icon (ionChange)="searchMusic()"  [(ngModel)]="search"></ion-searchbar>
+      <result-search [data]="subject" [updateComponent]="updateComponent"></result-search>
     
     </div>
 

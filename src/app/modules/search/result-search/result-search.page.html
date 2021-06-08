@@ -1,8 +1,6 @@
 
 
-
-  
-  <ion-list >
+  <ion-list *ngIf="!(updateComponent | async); else loading">
     <ion-item lines="none" class="ion-no-padding" *ngFor="let t of track | async " [routerLink]="['/artists/album']">
         <ion-thumbnail slot="start">
             <img src="{{ t.album.cover_medium }}">
@@ -17,5 +15,9 @@
         
     </ion-item>
 </ion-list>
+
+<ng-template #loading>
+    <div>Loading…</div>
+</ng-template>
 
 
