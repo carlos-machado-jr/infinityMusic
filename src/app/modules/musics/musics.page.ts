@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Animation, AnimationController, AnimationDirection } from '@ionic/angular';
+import { PlayingMusicService } from 'src/app/core/services/playing-music.service';
 import { ServicesService } from 'src/app/core/services/services.service';
 import { TrackService } from 'src/app/core/services/track.service';
 import { UsersService } from 'src/app/core/services/users.service';
@@ -40,7 +41,8 @@ export class MusicsPage implements OnInit {
   constructor(
     private animationCtrl: AnimationController,
     private userRecomendations: UsersService,
-    private trackService: TrackService
+    private trackService: TrackService,
+    private playingMusic: PlayingMusicService
     
     ) { }
 
@@ -92,5 +94,14 @@ export class MusicsPage implements OnInit {
       this.genrers = data;
       this.genrers.shift();
     })
+  }
+  play(id){
+    let trackSelect: Track; 
+    this.tracks.filter(data => {
+      if(data.id == id)
+          trackSelect = data
+    })
+    this.playingMusic.playList.next(trackSelect)
+    
   }
 }

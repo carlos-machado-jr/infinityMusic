@@ -61,7 +61,7 @@
         </ion-router-link>
 
         <ion-slides [options]="options2" class="ion-padding slideDefault">
-            <ion-slide *ngFor="let t of tracks" [routerLink]="['/artists/', t.artist.id, 'album', t.album.id, 'tracks', t.id]">
+            <ion-slide *ngFor="let t of tracks" (click)="play(t.id)">
                 <ion-img src="{{ t.album.cover_medium }}"></ion-img>
                 <div class="titleAlbum">
                     <span>{{ t.title }}</span>

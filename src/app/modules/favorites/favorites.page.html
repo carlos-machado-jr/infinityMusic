@@ -9,7 +9,7 @@
         <ion-list>
             <ion-item button *ngFor="let a of array" routerDirection="forward" lines="none" [routerLink]="['/artists']">
                 <ion-label>
-                    Melhores Musicas
+                   {{ a}}
                 </ion-label>
                 <ion-badge>99</ion-badge>
             </ion-item>

@@ -7,15 +7,15 @@
 
   <div class="content ion-padding">
 
-    <div class="header">
+    <div class="header" *ngIf="artist">
       <div class="header-img">
         <ion-avatar>
           <img
-            src="https://cdns-images.dzcdn.net/images/artist/5153692326b43f3488e6c2e47931a815/250x250-000000-80-0-0.jpg">
+            src="{{artist.picture_big}}">
         </ion-avatar>
       </div>
       <div class="title">
-        <span>Projota</span>
+        <span>{{artist.name}}</span>
       </div>
     </div>
 

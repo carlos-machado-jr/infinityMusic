@@ -7,7 +7,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./favorites.page.scss'],
 })
 export class FavoritesPage implements OnInit {
-  array: any[] = [1,2,3,4,5,6]
+  array: any[] = ["Musicas favoritas","Playlist","Albuns","Artistas"]
   constructor() { }
 
   ngOnInit() {

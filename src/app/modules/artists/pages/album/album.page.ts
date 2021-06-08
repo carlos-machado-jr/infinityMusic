@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
+import { PlayingMusicService } from 'src/app/core/services/playing-music.service';
 import { TrackService } from 'src/app/core/services/track.service';
 import { Album } from 'src/app/share/model/album';
 import { Artist } from 'src/app/share/model/artist';
@@ -28,7 +29,8 @@ export class AlbumPage implements OnInit {
   }
   constructor(
     private activeRouter: ActivatedRoute,
-    private trackService: TrackService
+    private trackService: TrackService,
+    private playingMusic: PlayingMusicService
     ) { }
 
   ngOnInit() {
@@ -63,7 +65,6 @@ export class AlbumPage implements OnInit {
   }
   getOtherAlbums(){
       this.albumSubscription = this.trackService.getAllAlbums(this.artistId).subscribe(result => {
-        console.log(result)
         this.albums = result.data
         
       })
@@ -71,6 +72,16 @@ export class AlbumPage implements OnInit {
 
   ngOnDestroy(){
     this.albumSubscription.unsubscribe()
+  }
+
+  teste(id){
+    let trackSelect: Track; 
+    this.track.filter(data => {
+      if(data.id == id)
+          trackSelect = data
+    })
+    this.playingMusic.playList.next(trackSelect)
+    
   }
 
 }

@@ -26,13 +26,13 @@
 
 
         <ion-list >
-            <ion-item lines="none" class="ion-no-padding" *ngFor="let t of images ">
+            <ion-item lines="none" class="ion-no-padding" *ngFor="let t of track " (click)="initMusic(t.id)">
                 <ion-thumbnail slot="start">
-                    <img src="{{ t.imageUrl}}">
+                    <img src="{{ t.album.cover_medium}}">
                 </ion-thumbnail>
                 <div class="informations">
-                    <span class="title">muleque de vila</span>
-                    <span class="description">projota</span>
+                    <span class="title">{{ t.title }}</span>
+                    <span class="description">{{ t.artist.name }}</span>
                 </div>
                 <ion-button slot="end" color="none" class="ion-no-padding">
                     <ion-icon  name="ellipsis-vertical-outline"></ion-icon>

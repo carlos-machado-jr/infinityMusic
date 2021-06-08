@@ -15,6 +15,6 @@ import { PlayMusicPage } from './play-music.page';
     IonicModule,
     PlayMusicPageRoutingModule
   ],
-  declarations: [PlayMusicPage]
+  declarations: []
 })
 export class PlayMusicPageModule {}

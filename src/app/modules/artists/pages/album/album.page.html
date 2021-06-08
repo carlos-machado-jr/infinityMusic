@@ -58,7 +58,7 @@
     </ion-grid>
 
     <ion-list *ngIf="track">
-      <ion-item lines="none" class="ion-no-padding" *ngFor="let i of track">
+      <ion-item lines="none" class="ion-no-padding" *ngFor="let i of track" (click)="teste(i.id)">
         <ion-thumbnail slot="start">
           <img src="{{ i.album.cover_medium }}">
         </ion-thumbnail>

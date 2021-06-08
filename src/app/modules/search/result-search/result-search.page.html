@@ -4,7 +4,7 @@
     <ion-item detail *ngIf="track | async" lines="none" class="ion-no-padding">
         <ion-label>Músicas</ion-label>
     </ion-item>
-    <ion-item lines="none" class="ion-no-padding" *ngFor="let t of track | async " [routerLink]="['/artists/album']">
+    <ion-item lines="none" class="ion-no-padding" *ngFor="let t of track | async " (click)="play(t.id)">
         <ion-thumbnail slot="start">
             <img src="{{ t.album.cover_medium }}">
         </ion-thumbnail>
@@ -23,7 +23,7 @@
     <ion-item detail *ngIf="artists | async" lines="none">
         <ion-label>Artistas</ion-label>
     </ion-item>
-    <ion-item lines="none" class="ion-no-padding" *ngFor="let a of artists | async " [routerLink]="['/artists/album']">
+    <ion-item lines="none" class="ion-no-padding" *ngFor="let a of artists | async " [routerLink]="['/artists', a.id]">
         <ion-avatar slot="start">
             <img src="{{ a.picture_medium }}">
         </ion-avatar>

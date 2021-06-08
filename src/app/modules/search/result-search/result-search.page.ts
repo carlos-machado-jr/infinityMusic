@@ -6,6 +6,7 @@ import { Track } from 'src/app/share/model/track';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Artist } from 'src/app/share/model/artist';
 import { Album } from 'src/app/share/model/album';
+import { PlayingMusicService } from 'src/app/core/services/playing-music.service';
 
 @Component({
   selector: 'result-search',
@@ -17,13 +18,14 @@ export class ResultSearchPage implements OnInit {
   artists: Observable<Artist[]>;
   album: Observable<Album[]>;
 
+  trackMusic: Track[];
   subject: Subscription;
 
   @Input() data: Subject<any> = new Subject<any>();
   @Input() updateComponent: Subject<boolean> = new Subject<boolean>();
 
   constructor(private trackService: SearchService,
-              private active: ActivatedRoute,
+              private playMusics: PlayingMusicService,
               private router: Router
   ) { }
 
@@ -48,7 +50,7 @@ export class ResultSearchPage implements OnInit {
       debounceTime(400), 
       distinctUntilChanged(), 
       switchMap((value) => {
-          return this.trackService.searchByTracks(value, 2)
+          return this.trackService.searchByTracks(value, 20)
       })
     )
   }
@@ -58,16 +60,24 @@ export class ResultSearchPage implements OnInit {
       debounceTime(400), 
       distinctUntilChanged(), 
       switchMap((value) => {
-          return this.trackService.searchByArtists(value, 2)
+          return this.trackService.searchByArtists(value, 10)
       })
     )
   }
 
   
   subscribers(){
-    this.subject = this.track.subscribe()
+    this.subject = this.track.subscribe( data => this.trackMusic = data)
   }
 
-
+  play(id){
+    let trackSelect: Track; 
+    
+    this.trackMusic.filter(data => {
+      if(data.id == id)
+          trackSelect = data
+    })
+    this.playMusics.playList.next(trackSelect)
+  }
 
 }

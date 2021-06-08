@@ -25,4 +25,11 @@ export class UsersService {
       map((result: any)=> {return result.data})
     )
   }
+
+  
+  getSearchHistory(){
+    return this.http.jsonp("https://api.deezer.com/user/2328738388/history?access_token=fr7Wtb3phMfSIOhMLcJZ4RknH0H2Zn2MFsllbjOpKupQ2X4z4J&output=jsonp&limit=5", "callback").pipe(
+      map((result: any)=> {return result.data})
+    )
+  }
 }

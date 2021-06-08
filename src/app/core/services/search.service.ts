@@ -88,17 +88,19 @@ uri="https://api.deezer.com/search";
     )
   }
 
-  searchByUser(): Observable<any[]>{
+  searchByUser(value, limit): Observable<Playlist[]>{
     const params = {
       'access_token':'fr7Wtb3phMfSIOhMLcJZ4RknH0H2Zn2MFsllbjOpKupQ2X4z4J'
       
     }
     
-    return this.http.get<any[]>("https://api.deezer.com/user/2328738388/recommendations/albums", {params: params, headers: this.headers}).pipe(
+    return this.http.get<any[]>("https://deezerdevs-deezer.p.rapidapi.com/user/2328738388/recommendations/albums", {params: params, headers: this.headers}).pipe(
       map((result: any) => {
         console.log(result)
         return result.data})
     )
   }
+
+  
 
 }

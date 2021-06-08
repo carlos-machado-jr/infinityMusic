@@ -1,8 +1,30 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-router-outlet [ngStyle]="{'opacity': !playMusic ? '0' : '1'}"></ion-router-outlet>
 
-  <ion-tabs>
-   
+
+  <ion-tabs [ngStyle]="{'opacity': playMusic ? '0' : '1'}">
+
+    <div class="content" [ngStyle]="{'display': playMusic ? 'none' : ''}" >
+    
+      
+        <div class="playMusic">
+          <ion-item lines="none" color="none" >
+            <ion-button color="none" (click)="play()"  *ngIf="!is_playing" [disabled]="!is_ready">
+              <ion-icon name="play" ></ion-icon>
+            </ion-button>  
+            <ion-button color="none" (click)="play()"  *ngIf="is_playing" [disabled]="is_ready">
+              <ion-icon name="pause"></ion-icon>
+              </ion-button>  
+           
+              <ion-label (click)="teste()">
+             
+                {{ nameTrack }}
+              </ion-label>
+              <ion-icon name="heart-outline"></ion-icon>
+              <ion-icon name="play-skip-forward"></ion-icon>
+          </ion-item>
+        </div>
+    </div>
     <ion-tab-bar slot="bottom">
       
       <ion-tab-button routerDirection="root" tab="musics">
@@ -22,4 +44,9 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-  </ion-app>
+  <play-music [ngStyle]="{'position': playMusic ? '' : 'absolute'}" (nameTrack)="getNameTrack($event)"></play-music>
+
+</ion-app>
+
+
+  
