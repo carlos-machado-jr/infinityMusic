@@ -35,6 +35,9 @@
       display: inline-block;
       
       .titleAlbum{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         span{
           font-size: 16px;
           font-weight: 500;

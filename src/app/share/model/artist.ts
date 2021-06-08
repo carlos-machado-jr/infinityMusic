@@ -1,5 +1,5 @@
 export class Artist{
-    id: any;
+    id: string = '';
     link: string;
     name: string;
     picture: string;

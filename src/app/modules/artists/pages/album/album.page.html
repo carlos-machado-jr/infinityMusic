@@ -1,23 +1,26 @@
 
 <ion-content>
   <app-header settings='true' toolbarSecondary='true'>
-    <ion-back-button defaultHref="artists"></ion-back-button>
+    <ion-back-button defaultHref="musics"></ion-back-button>
   </app-header>
 
 
   <div class="content ion-padding">
 
-    <div class="header">
+    <div class="header" *ngIf="album">
       <div class="header-img">
         
           <figure>
             <img
-            src="https://cdns-images.dzcdn.net/images/artist/5153692326b43f3488e6c2e47931a815/250x250-000000-80-0-0.jpg">
+            src="{{ album.cover_medium}}">
         
           </figure>
       </div>
       <div class="title">
-        <span>Projota</span>
+        <span>{{ album.title}}</span>
+      </div>
+      <div class="descriptionAlbum">
+        <span><i>por: </i>{{ album.artist.name}}</span>
       </div>
     </div>
 
@@ -54,14 +57,13 @@
       </ion-row>
     </ion-grid>
 
-    <ion-list>
-      <ion-item lines="none" class="ion-no-padding" *ngFor="let i of images">
+    <ion-list *ngIf="track">
+      <ion-item lines="none" class="ion-no-padding" *ngFor="let i of track">
         <ion-thumbnail slot="start">
-          <img src="{{ i.imageUrl }}">
+          <img src="{{ i.album.cover_medium }}">
         </ion-thumbnail>
         <div class="informations">
-          <span class="title">Music title</span>
-          <span class="description">Music subtitle</span>
+          <span class="title">{{ i.title }}</span>
         </div>
         <ion-buttons slot="end" class="ion-no-padding">
           <ion-button color="none" class="ion-no-padding">
@@ -84,10 +86,12 @@
       </ion-router-link>
 
     </div>
-    <ion-slides [options]="options" class="ion-padding slideDefault">
-      <ion-slide *ngFor="let img of images">
-        <ion-img src="{{ img.imageUrl }}"></ion-img>
-        <span>{{ img.imageName }}</span>
+    <ion-slides [options]="options" class="ion-padding slideDefault" *ngIf="albums">
+      <ion-slide *ngFor="let a of albums"  [routerLink]="['/artists/album', a.id ]">
+        <ion-img src="{{ a.cover_medium }}"></ion-img>
+       <div class="description">
+        <span>{{ a.title }}</span>
+       </div>
       </ion-slide>
     </ion-slides>
 

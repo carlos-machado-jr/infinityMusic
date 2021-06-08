@@ -1,3 +1,6 @@
+import { Artist } from "./artist";
+import { Track } from "./track";
+
 export class Album{
     id: any;
     title: string;
@@ -5,7 +8,6 @@ export class Album{
     cover_small: string;
     cover_medium: string;
     cover_xl: string;
-    md5_image: string;
-    tracklist: string;
-    type: string;
+    artist: Artist;
+    track: Track    
 }

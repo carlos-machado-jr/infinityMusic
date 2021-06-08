@@ -27,7 +27,7 @@
             </div>
         </ion-router-link>
         <ion-slides [options]="options2" class="ion-padding slideDefault">
-            <ion-slide *ngFor="let a of albums" [routerLink]="['/artists/', a.artist.id, 'album', a.id]">
+            <ion-slide *ngFor="let a of albums" [routerLink]="['/artists/album', a.id ]" >
                 <ion-img src="{{ a.cover_medium }}"></ion-img>
                 <div class="titleAlbum">
                     <span>{{ a.title }}</span>

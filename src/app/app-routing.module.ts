@@ -40,7 +40,11 @@ const routes: Routes = [
   {
     path: 'user/:id',
     loadChildren: () => import('./modules/user/user.module').then( m => m.UserPageModule)
+  },  {
+    path: 'play-music',
+    loadChildren: () => import('./modules/play-music/play-music.module').then( m => m.PlayMusicPageModule)
   }
+
 
 
 
