@@ -24,10 +24,24 @@ const routes: Routes = [
   {
     path: 'artists',
     loadChildren: () => import('./modules/artists/artists.module').then( m => m.ArtistsPageModule)
-  },  {
+  },
+  {
+    path: 'artists/:id',
+    loadChildren: () => import('./modules/artists/artists.module').then( m => m.ArtistsPageModule)
+  },
+  {
     path: 'search',
     loadChildren: () => import('./modules/search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('./modules/user/user.module').then( m => m.UserPageModule)
+  },
+  {
+    path: 'user/:id',
+    loadChildren: () => import('./modules/user/user.module').then( m => m.UserPageModule)
   }
+
 
 
 

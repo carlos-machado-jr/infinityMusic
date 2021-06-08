@@ -1,11 +1,11 @@
 .content{
   .title{
     display: flex;
-    align-items: baseline;
+    align-items: center;
     span{
-      font-size: 28px;
+      font-size: 22px;
       font-weight: 500;
-      line-height: 20px;
+      line-height: 40px;
       letter-spacing: 0.4px;
       
     }
@@ -34,11 +34,19 @@
     ion-slide{
       display: inline-block;
       
-      span{
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 20px;
+      .titleAlbum{
+        span{
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: 0.4px;
+        }
+      }
+      .descriptionArtist{
+        font-size: 12px;
+        font-weight: 300;
         letter-spacing: 0.4px;
+        color: gray;
       }
       
       ion-img::part(image){

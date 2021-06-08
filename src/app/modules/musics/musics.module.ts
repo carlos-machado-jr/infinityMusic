@@ -9,7 +9,6 @@ import { MusicsPageRoutingModule } from './musics-routing.module';
 
 import { MusicsPage } from './musics.page';
 import { HeaderComponent } from '../../core/header/header.component';
-import { MusicsService } from './musics.service';
 
 @NgModule({
   imports: [
@@ -19,7 +18,6 @@ import { MusicsService } from './musics.service';
     MusicsPageRoutingModule,
     HttpClientModule
   ],
-  providers:[MusicsService],
   declarations: [MusicsPage, HeaderComponent]
 })
 export class MusicsPageModule {}

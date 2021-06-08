@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: AlbumPage
+  },
+  {
+    path: 'tracks',
+    loadChildren: () => import('../tracks/tracks.module').then( m => m.TracksPageModule)
+  },
+  {
+    path: 'tracks/:id',
+    loadChildren: () => import('../tracks/tracks.module').then( m => m.TracksPageModule)
   }
 ];
 

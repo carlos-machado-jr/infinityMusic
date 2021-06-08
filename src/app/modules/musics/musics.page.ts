@@ -1,9 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Animation, AnimationController, AnimationDirection } from '@ionic/angular';
 import { ServicesService } from 'src/app/core/services/services.service';
+import { TrackService } from 'src/app/core/services/track.service';
 import { UsersService } from 'src/app/core/services/users.service';
 import { Album } from 'src/app/share/model/album';
-import { MusicsService } from './musics.service';
+import { Genre } from 'src/app/share/model/genre';
+import { Playlist } from 'src/app/share/model/playlist';
+import { Track } from 'src/app/share/model/track';
 
 @Component({
   selector: 'app-musics',
@@ -17,7 +20,9 @@ export class MusicsPage implements OnInit {
   private animation: Animation;
   
   albums: Album[];
-
+  playLists: Playlist[];
+  tracks: Track[];
+  genrers: Genre[];
 
 
   public options = {
@@ -33,18 +38,18 @@ export class MusicsPage implements OnInit {
 
   public images = [ ]
   constructor(
-    private service: ServicesService,
     private animationCtrl: AnimationController,
-    private userRecomendations: UsersService
+    private userRecomendations: UsersService,
+    private trackService: TrackService
     
     ) { }
 
   ngOnInit() {
     this.getAlbumsRecomendations()
-    this.service.getMusic().subscribe((res: any) => {
-      this.images = res.data;
-      this.images.shift();
-    })
+    this.getPlayListsRecomendations()
+    this.getTracksRecomendations()
+    this.getGenre()
+    
    
   }
 
@@ -70,6 +75,22 @@ export class MusicsPage implements OnInit {
 
 
   getAlbumsRecomendations(){
-    this.userRecomendations.getAlbumsRecomendations().subscribe(data => this.albums = data)
+    this.userRecomendations.getAlbumsRecomendations().subscribe(data => {
+      this.albums = data })
+  }
+  getPlayListsRecomendations(){
+    this.userRecomendations.getPlaylistRecomendations().subscribe(data => {
+      this.playLists = data })
+  }
+  getTracksRecomendations(){
+    this.userRecomendations.getTracksRecomendations().subscribe(data => {
+      console.log(data)
+      this.tracks = data })
+  }
+  getGenre(){
+    this.trackService.getGenre().subscribe(data => {
+      this.genrers = data;
+      this.genrers.shift();
+    })
   }
 }
