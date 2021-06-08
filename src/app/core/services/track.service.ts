@@ -35,6 +35,8 @@ export class TrackService {
 
     return this.http.jsonp<any>(`https://api.deezer.com/artist/${id}/albums?output=jsonp`, "callback");
   }
+  getTopTracks(id): Observable<any>{
 
-  
+    return this.http.jsonp<any>(`https://api.deezer.com/artist/${id}/top?output=jsonp`, "callback");
+  }
 }

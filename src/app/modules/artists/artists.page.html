@@ -41,7 +41,7 @@
 
   <div class="content-body ion-padding">
 
-    <ion-grid>
+    <ion-grid *ngIf="track">
       <ion-row>
         <ion-col size="8">
           <div class="title ion-align-itens-center">
@@ -54,14 +54,14 @@
       </ion-row>
     </ion-grid>
 
-    <ion-list>
-      <ion-item lines="none" class="ion-no-padding" *ngFor="let i of images">
+    <ion-list *ngIf="track">
+      <ion-item lines="none" class="ion-no-padding" *ngFor="let t of track">
         <ion-thumbnail slot="start">
-          <img src="{{ i.imageUrl }}">
+          <img src="{{ t.album.cover_medium }}">
         </ion-thumbnail>
         <div class="informations">
-          <span class="title">Music title</span>
-          <span class="description">Music subtitle</span>
+          <span class="title">{{t.title}}</span>
+          <!-- <span class="description">Music subtitle</span> -->
         </div>
         <ion-buttons slot="end" class="ion-no-padding">
           <ion-button color="none" class="ion-no-padding">

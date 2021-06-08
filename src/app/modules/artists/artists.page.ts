@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { SearchService } from 'src/app/core/services/search.service';
 import { TrackService } from 'src/app/core/services/track.service';
 import { Artist } from 'src/app/share/model/artist';
+import { Track } from 'src/app/share/model/track';
 import { FavoritesPage } from '../favorites/favorites.page';
 
 @Component({
@@ -24,6 +25,8 @@ export class ArtistsPage implements OnInit {
   ]
   artist: Artist
   artistId: string;
+
+  track: Track[];
   public options = {
     slidesPerView: 3,
     freeMode: true,
@@ -43,7 +46,7 @@ export class ArtistsPage implements OnInit {
       this.artistId = data['id']
     })
     this.getArtist();
-    
+    this.getTopTracks()
   }
   // ionViewDidEnter(){
   //   setTimeout(() => {
@@ -62,5 +65,16 @@ export class ArtistsPage implements OnInit {
       // })
     })
   }
+
+  getTopTracks(){
+    this.searchService.getTopTracks(this.artistId).subscribe(data => {
+     this.track = data.data;
+     
+     // this.track = data.tracks.data
+     // this.track.map((data, i) => {
+     //   data.album = this.album
+     // })
+   })
+ }
   
 }

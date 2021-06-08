@@ -18,7 +18,7 @@ export class PlayMusicPage implements OnInit {
   duration: any = -1;
   curr_playing_file: MediaObject;
   storageDirectory: any;
-  play_The_track: string = "../../assets/sounds/audio1.mp3"; //note this specific url format is used in android only
+  play_The_track: string = "https://cdns-preview-d.dzcdn.net/stream/c-d28ee67c24d60e740866c7709d772f55-12.mp3"; //note this specific url format is used in android only
   position: any = 0;
   get_position_interval: any;
   is_playing = false;
