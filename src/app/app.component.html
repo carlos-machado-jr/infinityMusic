@@ -3,28 +3,29 @@
 
 
   <ion-tabs [ngStyle]="{'opacity': playMusic ? '0' : '1'}">
-
-    <div class="content" [ngStyle]="{'display': playMusic ? 'none' : ''}" >
+    
+    <div class="content" [ngStyle]="{'display': playMusic ? 'none' : ''}" *ngIf="isReady" slot="bottom">
     
       
-        <div class="playMusic">
-          <ion-item lines="none" color="none" >
-            <ion-button color="none" (click)="play()"  *ngIf="!is_playing" [disabled]="!is_ready">
-              <ion-icon name="play" ></ion-icon>
+      <div class="playMusic" >
+        <ion-item lines="none" color="none" >
+          <ion-button color="none" (click)="play()"  *ngIf="!isPlaying" [disabled]="!isReady">
+            <ion-icon name="play" ></ion-icon>
+          </ion-button>  
+          <ion-button color="none" (click)="pause()"  *ngIf="isPlaying" [disabled]="!isReady">
+            <ion-icon name="pause"></ion-icon>
             </ion-button>  
-            <ion-button color="none" (click)="play()"  *ngIf="is_playing" [disabled]="is_ready">
-              <ion-icon name="pause"></ion-icon>
-              </ion-button>  
+         
+            <ion-label (click)="teste()">
            
-              <ion-label (click)="teste()">
-             
-                {{ nameTrack }}
-              </ion-label>
-              <ion-icon name="heart-outline"></ion-icon>
-              <ion-icon name="play-skip-forward"></ion-icon>
-          </ion-item>
-        </div>
-    </div>
+              {{ nameTrack }}
+            </ion-label>
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name="play-skip-forward"></ion-icon>
+        </ion-item>
+      </div>
+  </div>
+    
     <ion-tab-bar slot="bottom">
       
       <ion-tab-button routerDirection="root" tab="musics">
@@ -44,7 +45,7 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-  <play-music [ngStyle]="{'position': playMusic ? '' : 'absolute'}" (nameTrack)="getNameTrack($event)"></play-music>
+  <play-music [ngStyle]="{'position': playMusic ? '' : 'absolute'}" (isReady)="getStatusPlaying($event)" (nameTrack)="getNameTrack($event)" (isPlaying)="getStatusTrack($event)"></play-music>
 
 </ion-app>
 

@@ -18,7 +18,7 @@ export class PlayMusicPage implements OnInit {
   duration: any = -1;
   curr_playing_file: MediaObject;
   storageDirectory: any;
-  play_The_track: string = "https://cdns-preview-d.dzcdn.net/stream/c-d28ee67c24d60e740866c7709d772f55-12.mp3"; //note this specific url format is used in android only
+  play_The_track: string = ""; //note this specific url format is used in android only
   position: any = 0;
   get_position_interval: any;
   is_playing = false;
@@ -28,8 +28,9 @@ export class PlayMusicPage implements OnInit {
   display_position: any = '00:00';
   display_duration: any = '00:00';
   @Output() nameTrack: EventEmitter<any> = new EventEmitter();
+  @Output() isReady: EventEmitter<boolean> = new EventEmitter();
   n: number = 0;
-  @Output() eventPosition: EventEmitter<any> = new EventEmitter();
+  @Output() isPlaying: EventEmitter<boolean> = new EventEmitter();
 
   track: Track[] = []
   constructor(
@@ -41,17 +42,35 @@ export class PlayMusicPage implements OnInit {
   ngOnInit() {
 
     this.playMusiService.playList.subscribe(data => {
+      if(this.is_playing){
+        this.stop();
+        this.setToPlayback();
+      }
       this.image = data.album.cover_xl;
       this.play_The_track = data.preview;
       this.artist = data.artist.name
       this.title = data.title
       this.nameTrack.emit(data.title);
       this.prepareAudioFile()
+      setTimeout(()=>{
+        this.play()
+      },1000)
+      
     })
 
     this.playMusiService.enterPlayingMusic.subscribe(data => {
       if(data){
-        this.prepareAudioFile()
+        if(!this.is_playing){
+          this.prepareAudioFile()
+        }
+      }
+    })
+
+    this.playMusiService.playMusic.subscribe(status => {
+      if(status && !this.is_playing){
+        this.play()
+      } else {
+        this.pause()
       }
     })
       
@@ -64,9 +83,7 @@ export class PlayMusicPage implements OnInit {
   }
 
   getDuration() {
-    console.log("entrou 1")
     this.curr_playing_file = this.sound.create(this.play_The_track);
-
     this.curr_playing_file.play();
     this.curr_playing_file.setVolume(0.0);
 
@@ -77,23 +94,20 @@ export class PlayMusicPage implements OnInit {
 
       if (self.duration === -1 || !self.duration) {
         self.duration = ~~(self.curr_playing_file.getDuration());
-        console.log("if 1")
         console.log(self.duration)
       } else {
-        console.log("if 1 else")
 
         if (self.duration !== temp_duration) {
           temp_duration = self.duration;
-        console.log("if 2")
 
         } else {
-        console.log("if 2 else")
 
           self.curr_playing_file.stop();
           self.curr_playing_file.release();
 
           clearInterval(self.get_duration_interval);
           this.display_duration = this.toHHMMSS(self.duration);
+
           self.setToPlayback();
         }
       }
@@ -122,6 +136,7 @@ export class PlayMusicPage implements OnInit {
       }
     });
     this.is_ready = true;
+    
     this.getAndSetCurrentAudioPosition();
   }
 
@@ -140,10 +155,10 @@ export class PlayMusicPage implements OnInit {
             
           } else {
             // update position for display
-            this.eventPosition.emit(position);
             self.position = position;
             this.display_duration = this.toHHMMSS(self.duration - self.position);
-
+            this.isReady.emit(this.is_ready)
+            this.isPlaying.emit(this.is_playing)
             this.display_position = this.toHHMMSS(self.position);
           }
         } else if (position >= self.duration) {
@@ -169,6 +184,8 @@ export class PlayMusicPage implements OnInit {
   }
   play() {
     this.curr_playing_file.play();
+    
+    
   }
 
   pause() {

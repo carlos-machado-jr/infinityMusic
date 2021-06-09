@@ -8,6 +8,8 @@ import { PlayingMusicService } from './core/services/playing-music.service';
 })
 export class AppComponent {
   playMusic = false;
+  isPlaying = false;
+  isReady = false;
   nameTrack = "..."
   constructor(private playMusiService: PlayingMusicService) {}
 
@@ -17,10 +19,20 @@ export class AppComponent {
   teste(){
     this.playMusiService.enterPlayingMusic.next(true)
   }
-  eventPosition(event){
-    console.log(event)
+  getStatusPlaying(event){
+    this.isReady = event;
   }
   getNameTrack(name){
     this.nameTrack = name
+  }
+  getStatusTrack(event){
+    this.isPlaying = event
+  }
+
+  play(){
+    this.playMusiService.playMusic.next(true);
+  }
+  pause(){
+    this.playMusiService.playMusic.next(true);
   }
 }
