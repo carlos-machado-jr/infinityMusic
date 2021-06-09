@@ -1,5 +1,21 @@
 
-  
+  ion-content{
+    margin-top: 20px;
+    .content{
+      .imageBox{
+        display: flex;
+        justify-content: center;
+        figure{
+          width: 400px;
+          margin: 0;
+          img{
+            max-width:100%;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
   ion-toolbar {
     --background: #00685b;
   }

@@ -1,32 +1,36 @@
 
 <ion-content>
-
-
-
+  <ion-router-link (click)="teste()">
+    <ion-icon name="chevron-down-outline"></ion-icon>
+  </ion-router-link>
+  
   <div class="content ion-padding">
-    <ion-router-link (click)="teste()">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </ion-router-link>
-    <div class="fixedContent">
-      <img src="{{ image }}" alt="">
-    </div>
-  
-    <div class="padding_Top">
-      <div class="fixedContent">
-        <ion-text color="light">{{ artist }}</ion-text>
-        <p text-uppercase color="light" class="pUser microsoft marquee ">{{ title }}</p>
-      </div>
-      <ion-range min="0" max="{{duration}}" [(ngModel)]="position" color="light">
-      </ion-range>
-      <div class="rangePlaytime">
-        <ion-label class="startTime" color="light">{{ display_position }}</ion-label>
-        <ion-label class="endTime" color="light" *ngIf="duration == -1">--:--</ion-label>
-        <ion-label class="endTime" color="light" *ngIf="duration != -1">{{ display_duration }}</ion-label>
-      </div>
-  
-    </div>
+      
 
-    <ion-grid>
+      <div class="imageBox">
+        <figure>
+          <img src="{{ image }}" alt="">
+        </figure>
+        
+      </div>
+  
+      <!-- <div class="padding_Top">
+          <div class="fixedContent">
+            <ion-text color="light">{{ artist }}</ion-text>
+            <p text-uppercase color="light" class="pUser microsoft marquee ">{{ title }}</p>
+          </div>
+
+          <ion-range min="0" max="{{duration}}" [(ngModel)]="position" color="light">
+          </ion-range>
+
+          <div class="rangePlaytime">
+            <ion-label class="startTime" color="light">{{ display_position }}</ion-label>
+            <ion-label class="endTime" color="light" *ngIf="duration == -1">--:--</ion-label>
+            <ion-label class="endTime" color="light" *ngIf="duration != -1">{{ display_duration }}</ion-label>
+          </div>
+      </div> -->
+
+    <!-- <ion-grid>
       <ion-row justify-content-center align-items-center style="height: 100%">
         <ion-col>
           <div class="flexRow">
@@ -69,7 +73,7 @@
         </ion-col>
       </ion-row>
       
-    </ion-grid>
+    </ion-grid> -->
   </div>
 
 

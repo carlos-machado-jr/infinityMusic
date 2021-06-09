@@ -7,7 +7,7 @@ import { PlayingMusicService } from './core/services/playing-music.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  playMusic = false;
+  playMusic = true;
   isPlaying = false;
   isReady = false;
   nameTrack = "..."
