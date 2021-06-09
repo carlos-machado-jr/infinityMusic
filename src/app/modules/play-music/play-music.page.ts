@@ -12,8 +12,8 @@ import { Track } from 'src/app/share/model/track';
 })
 export class PlayMusicPage implements OnInit {
   title: any = 'Ed Sheeran'
-  artist: any;
-  image: string = '../../assets/images/album.jpg';
+  artist: any = 'artist name';
+  image: string = 'https://cdns-images.dzcdn.net/images/cover/be1dcc51e5d3a82f72ecec2d285d915e/1000x1000-000000-80-0-0.jpg';
   filename: any = 'Shape of You';
   duration: any = -1;
   curr_playing_file: MediaObject;
